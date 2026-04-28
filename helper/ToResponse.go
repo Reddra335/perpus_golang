@@ -11,6 +11,17 @@ func ToCategoryResponse(category domain.Category) web.CategoryResponse {
 		Name: category.Name,
 	}
 }
+func ToBookResponse(book domain.Book) web.BookResponse {
+	return web.BookResponse{
+		Id:         book.CategoryId,
+		Title:      book.Title,
+		Author:     book.Author,
+		Isbn:       book.Isbn,
+		Stock:      book.Stock,
+		CategoryId: book.CategoryId,
+		FilePath:   book.FilePath,
+	}
+}
 func ToCategoryResponseSlice(categories []domain.Category) []web.CategoryResponse {
 
 	var ResponseCategory []web.CategoryResponse
@@ -21,4 +32,14 @@ func ToCategoryResponseSlice(categories []domain.Category) []web.CategoryRespons
 	}
 	return ResponseCategory
 
+}
+
+func ToBookResponseSlice(books []domain.Book) []web.BookResponse {
+	var ManyBook []web.BookResponse
+
+	for _, book := range books {
+		ManyBook = append(ManyBook, ToBookResponse(book))
+
+	}
+	return ManyBook
 }

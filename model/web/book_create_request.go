@@ -6,5 +6,5 @@ type BookCreateRequest struct {
 	Isbn       string `validate:"required,max:20,min:1" json:"isbn"`
 	Stock      int    `validate:"required,gte=0" json:"stock"`
 	CategoryId int    `validate:"required" json:"categor_yid"`
-	FilePath   int    `json:"file_path"`
+	FilePath   string `json:"file_path"`
 }
